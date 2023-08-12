@@ -1,7 +1,7 @@
 const axios = require('axios')
 const userAgent = require('fake-useragent');
 
-async function instagramV2(url) {
+async function instagram(url) {
   try {
   const { data } = await axios.post('https://fastdl.app/c/',{
     url: url,
