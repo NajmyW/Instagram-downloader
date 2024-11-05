@@ -3,6 +3,7 @@ const cheerio = require('cheerio');
 const FormData = require('form-data');
 
 async function getToken() {
+        try {
   const { data } = await axios.get("https://storysaver.to/en")
 
   // Modify regex patterns for flexibility and ensure capturing
@@ -18,7 +19,10 @@ async function getToken() {
   return {
     k_exp: k_exp,
     k_token: k_token,
-  }
+  }     
+    } catch (e) {        
+        return e.message
+    }
 }
 
 async function instagram(url) {
